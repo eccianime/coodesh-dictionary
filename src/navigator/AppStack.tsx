@@ -17,13 +17,13 @@ export default function AppStack() {
         headerShown: false,
       }}
     >
-      {currentUser ? (
+      {!currentUser ? (
+        <Screen name="Auth" component={AuthStack} />
+      ) : (
         <>
           <Screen name="Account" component={AccountTab} />
           <Screen name="Details" component={Details} />
         </>
-      ) : (
-        <Screen name="Auth" component={AuthStack} />
       )}
     </Navigator>
   );
