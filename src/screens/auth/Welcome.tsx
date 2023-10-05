@@ -1,34 +1,28 @@
 import { Center, VStack } from "native-base";
-import LogoSVG from "../../assets/svg/logo.svg";
-import WaveSVG from "../../assets/svg/wave.svg";
-import { Button, Text } from "../../components";
-import { SCREEN_WIDTH } from "../../config/theme";
+import { Button, LogoHeader, Text } from "../../components";
+import { useAppNavigation } from "../../hooks";
 
 export default function Welcome() {
+  const { navigate } = useAppNavigation();
   return (
     <VStack flex={1}>
-      <Center
-        pt={10}
-        pb={20}
-        bg={{
-          linearGradient: {
-            colors: ["primary.100", "primary.300", "primary.500"],
-            start: [0, 0],
-            end: [1, 1],
-          },
-        }}
-      >
-        <LogoSVG color="white" width={300} height={300 * 0.86} />
-        <VStack position={"absolute"} left={0} bottom={-1}>
-          <WaveSVG width={SCREEN_WIDTH} height={SCREEN_WIDTH * 0.17} />
-        </VStack>
-      </Center>
+      <LogoHeader />
       <Center flex={1} mb={30}>
-        <Text fontSize={"3xl"} fontFamily={"bold"} mb={5}>
+        <Text fontSize={"3xl"} fontFamily={"bold"}>
           Bem-vindo
         </Text>
-        <Button text="Criar Conta" />
-        <Button text="Entrar" isOutline />
+        <Text textAlign={"center"} fontSize={"md"} mb={5}>
+          {"Crie sua conta ou entre no aplicativo"}
+        </Text>
+        <Button
+          text="Criar Conta"
+          onPress={() => navigate("Auth", { screen: "Register" })}
+        />
+        <Button
+          text="Entrar"
+          isOutline
+          onPress={() => navigate("Auth", { screen: "Log In" })}
+        />
       </Center>
       <Text fontFamily={"light"} mb={5} textAlign={"center"}>
         React Native Coodesh Challenge - 2023
