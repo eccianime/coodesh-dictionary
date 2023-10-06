@@ -1,5 +1,5 @@
 import { Center, Spinner, useTheme } from "native-base";
-import Text from "./Text";
+import Text from "../basic/Text";
 
 export default function Loading() {
   const { colors } = useTheme();
@@ -14,7 +14,7 @@ export default function Loading() {
     >
       <Spinner color={colors.primary[200]} size={100} />
       <Text color={"primary.200"} fontFamily={"bold"} fontSize={"lg"}>
-        Carregando...
+        Loading...
       </Text>
     </Center>
   );

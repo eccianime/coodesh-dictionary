@@ -1,7 +1,7 @@
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import { type RootState } from "..";
-import { AccountState } from "../../types";
+import { AccountState, UserProps } from "../../types";
 
 const initialState: AccountState = {
   currentUser: undefined,
@@ -12,7 +12,7 @@ export const accountSlice = createSlice({
   name: "account",
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<any>) => {
+    setUser: (state, action: PayloadAction<UserProps | undefined>) => {
       state.currentUser = action.payload;
     },
     setFavorites: (state, action: PayloadAction<any[]>) => {

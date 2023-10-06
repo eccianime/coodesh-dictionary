@@ -16,7 +16,7 @@ export type AccountParamList = {
 export type AppParamList = {
   Auth: NavigatorScreenParams<AuthParamList>;
   Account: NavigatorScreenParams<AccountParamList>;
-  Details: undefined;
+  Details: { word: string };
 };
 
 export type AppNavigation = StackNavigationProp<AppParamList>;

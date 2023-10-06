@@ -1,8 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Center, Icon, Modal as NBModal, VStack } from "native-base";
 import { ModalProps } from "../../types";
-import Text from "../common/Text";
-import Button from "../common/Button";
+import Text from "../basic/Text";
+import Button from "../basic/Button";
 import { useDispatch } from "react-redux";
 import { setModal } from "../../redux";
 
@@ -41,7 +41,7 @@ export default function Modal({ isVisible, text, type }: ModalProps) {
             textAlign={"center"}
             mb={4}
           >
-            {type === "success" ? "Sucesso!" : "Ocorreu um erro!"}
+            {type === "success" ? "Success!" : "We got an Error!"}
           </Text>
           <Text fontSize={"md"} textAlign={"center"} mb={4}>
             {text}

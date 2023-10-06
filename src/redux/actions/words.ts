@@ -10,7 +10,6 @@ export const getWords = createAsyncThunk(
   async (payload: { currentPage: number }, thunkAPI) => {
     try {
       thunkAPI.dispatch(setLoading(true));
-      console.log("entra aqui");
       const { currentPage } = payload;
 
       let wordList: string[] = [];
@@ -22,10 +21,8 @@ export const getWords = createAsyncThunk(
         await AsyncStore("wordList", newCacheWordList);
         wordList = newCacheWordList;
       }
-      console.log("wordList: ", wordList.length);
       const currentWordList = (thunkAPI.getState() as RootState).words.words;
-      console.log("currentWordList: ", currentWordList.length);
-      const nextList = wordList.slice(currentPage * 50, (currentPage + 1) * 50);
+      const nextList = wordList.slice(currentPage * 30, (currentPage + 1) * 30);
       const updatedWordList = [...new Set(currentWordList.concat(nextList))];
       thunkAPI.dispatch(setWords(updatedWordList));
     } catch (error) {

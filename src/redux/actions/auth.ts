@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import { object, ref, string } from "yup";
 import { auth } from "../../config/firebase";
@@ -29,7 +30,19 @@ export const registerAction = createAsyncThunk(
       thunkAPI.dispatch(setLoading(true));
       await registerSchema.validate(payload);
       const resp = await createUserWithEmailAndPassword(auth, email, password);
-      thunkAPI.dispatch(setUser(resp.user.uid));
+      thunkAPI.dispatch(
+        setModal({
+          isVisible: true,
+          text: "Great! You registered in the app, you're being logged in",
+          type: "success",
+        })
+      );
+      thunkAPI.dispatch(
+        setUser({
+          uid: resp.user.uid,
+          email,
+        })
+      );
     } catch (error: any) {
       let targetMessage = "";
       if (error.code) {
@@ -43,7 +56,9 @@ export const registerAction = createAsyncThunk(
       thunkAPI.dispatch(
         setModal({
           isVisible: true,
-          text: targetMessage || "Erro desconhecido",
+          text:
+            targetMessage ||
+            "Unknown error, please contact the developer team.",
           type: "error",
         })
       );
@@ -58,7 +73,12 @@ export const loginAction = createAsyncThunk(
     try {
       thunkAPI.dispatch(setLoading(true));
       const resp = await signInWithEmailAndPassword(auth, email, password);
-      thunkAPI.dispatch(setUser(resp.user.uid));
+      thunkAPI.dispatch(
+        setUser({
+          uid: resp.user.uid,
+          email,
+        })
+      );
     } catch (error: any) {
       const targetMessage =
         FirebaseErrorMessages.find((fem) => fem.code === error.code)
@@ -67,10 +87,21 @@ export const loginAction = createAsyncThunk(
       thunkAPI.dispatch(
         setModal({
           isVisible: true,
-          text: targetMessage || "Erro desconhecido",
+          text:
+            targetMessage ||
+            "Unknown error, please contact the developer team.",
           type: "error",
         })
       );
     }
+  }
+);
+
+export const logoutAction = createAsyncThunk(
+  "auth/logout",
+  async (_, thunkAPI) => {
+    thunkAPI.dispatch(setLoading(true));
+    await signOut(auth);
+    thunkAPI.dispatch(setUser(undefined));
   }
 );

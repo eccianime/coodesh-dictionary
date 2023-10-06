@@ -15,17 +15,17 @@ export default function Welcome() {
       <LogoHeader />
       <Center flex={1} mb={30}>
         <Text fontSize={"3xl"} fontFamily={"bold"}>
-          Bem-vindo
+          Welcome!
         </Text>
         <Text textAlign={"center"} fontSize={"md"} mb={5}>
-          {"Crie sua conta ou entre no aplicativo"}
+          {"Create your account or log in the app"}
         </Text>
         <Button
-          text="Criar Conta"
+          text="Create Account"
           onPress={() => navigate("Auth", { screen: "Register" })}
         />
         <Button
-          text="Ja tenho conta"
+          text="Already have an account?"
           isOutline
           onPress={() => navigate("Auth", { screen: "Log In" })}
         />

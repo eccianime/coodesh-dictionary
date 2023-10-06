@@ -5,8 +5,13 @@ export type AppState = {
   modalType: "success" | "error" | "";
 };
 
+export type UserProps = {
+  uid: string;
+  email: string;
+};
+
 export type AccountState = {
-  currentUser?: any;
+  currentUser?: UserProps;
   favorites: any[];
 };
 

@@ -10,6 +10,7 @@ import {
 } from "../../components";
 import { useAppDispatch, useAppNavigation, useAppSelector } from "../../hooks";
 import { appSelector, loginAction } from "../../redux";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function LogIn() {
   const [formData, setFormData] = useState({
@@ -26,36 +27,36 @@ export default function LogIn() {
   const handleGoRegister = () => navigate("Auth", { screen: "Register" });
 
   return (
-    <VStack flex={1}>
+    <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <LogoHeader />
       <VStack px={3}>
         <Text textAlign={"center"} fontSize={"3xl"} fontFamily={"bold"}>
-          Entrar no sistema
+          Log in the app
         </Text>
         <Text textAlign={"center"} fontSize={"md"} mb={5}>
-          {"Insira seu e-mail e \nsenha para entrar no sistema"}
+          {"Enter your e-mail and \npassword to log in the app"}
         </Text>
         <Input
           value={formData.email}
           onChangeText={(email) => setFormData({ ...formData, email })}
-          placeholder="Insira seu e-mail"
+          placeholder="Enter your e-mail"
           mb={3}
           keyboardType="email-address"
         />
         <Input
           value={formData.password}
           onChangeText={(password) => setFormData({ ...formData, password })}
-          placeholder="Insira sua senha"
+          placeholder="Enter your password"
           secureTextEntry
           mb={3}
         />
         <Center>
-          <Button text="Entrar" isOutline onPress={handleLogin} />
+          <Button text="Log In" isOutline onPress={handleLogin} />
           <Pressable onPress={handleGoRegister}>
             <Text textAlign={"center"} fontSize={"md"} mb={5}>
-              {"Não tem conta? "}
+              {"Don't have an account? "}
               <Text fontFamily={"bold"} color={"primary.300"} fontSize={"md"}>
-                Crie uma aqui
+                Create one here
               </Text>
             </Text>
           </Pressable>
@@ -63,6 +64,6 @@ export default function LogIn() {
       </VStack>
       {isLoading && <Loading />}
       <Modal isVisible={isModalVisible} text={modalText} type={modalType} />
-    </VStack>
+    </KeyboardAwareScrollView>
   );
 }

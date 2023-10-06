@@ -40,15 +40,15 @@ export default function Register() {
       <LogoHeader />
       <VStack px={3}>
         <Text textAlign={"center"} fontSize={"3xl"} fontFamily={"bold"}>
-          Criar Conta
+          Create Account
         </Text>
         <Text textAlign={"center"} fontSize={"md"} mb={5}>
-          {"Insira seu e-mail e uma\nsenha para se cadastrar no sistema"}
+          {"Enter an e-mail and a \npassword to register in the app"}
         </Text>
         <Input
           value={formData.email}
           onChangeText={(email) => setFormData({ ...formData, email })}
-          placeholder="Insira seu e-mail"
+          placeholder="Enter an e-mail"
           mb={3}
           keyboardType="email-address"
         />
@@ -56,7 +56,7 @@ export default function Register() {
           <Input
             value={formData.password}
             onChangeText={(password) => setFormData({ ...formData, password })}
-            placeholder="Insira sua senha"
+            placeholder="Enter a password"
             secureTextEntry={!isPassVisible}
           />
           <IconButton
@@ -78,7 +78,7 @@ export default function Register() {
             onChangeText={(repeatPassword) =>
               setFormData({ ...formData, repeatPassword })
             }
-            placeholder="Repita sua senha"
+            placeholder="Repeat the password"
             secureTextEntry={!isPassVisible}
           />
           <IconButton
@@ -95,12 +95,12 @@ export default function Register() {
           />
         </HStack>
         <Center>
-          <Button text="Criar Conta" isOutline onPress={handleRegister} />
+          <Button text="Create Account" isOutline onPress={handleRegister} />
           <Pressable onPress={() => navigate("Auth", { screen: "Log In" })}>
             <Text textAlign={"center"} fontSize={"md"} mb={5}>
-              {"Ja tem conta? "}
+              {"Already have an account? "}
               <Text fontFamily={"bold"} color={"primary.300"} fontSize={"md"}>
-                Entre Aqui
+                Log in here
               </Text>
             </Text>
           </Pressable>
