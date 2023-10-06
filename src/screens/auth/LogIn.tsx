@@ -9,22 +9,22 @@ import {
   Text,
 } from "../../components";
 import { useAppDispatch, useAppNavigation, useAppSelector } from "../../hooks";
-import { loginAction } from "../../redux";
+import { appSelector, loginAction } from "../../redux";
 
 export default function LogIn() {
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: "asd1@asd.com",
+    password: "12345678",
   });
   const dispatch = useAppDispatch();
   const { navigate } = useAppNavigation();
-  const { isLoading, isModalVisible, modalText, modalType } = useAppSelector(
-    (state) => state.app
-  );
 
-  const handleLogin = () => {
-    dispatch(loginAction(formData));
-  };
+  const { isLoading, isModalVisible, modalText, modalType } =
+    useAppSelector(appSelector);
+
+  const handleLogin = () => dispatch(loginAction(formData));
+  const handleGoRegister = () => navigate("Auth", { screen: "Register" });
+
   return (
     <VStack flex={1}>
       <LogoHeader />
@@ -51,7 +51,7 @@ export default function LogIn() {
         />
         <Center>
           <Button text="Entrar" isOutline onPress={handleLogin} />
-          <Pressable onPress={() => navigate("Auth", { screen: "Register" })}>
+          <Pressable onPress={handleGoRegister}>
             <Text textAlign={"center"} fontSize={"md"} mb={5}>
               {"Não tem conta? "}
               <Text fontFamily={"bold"} color={"primary.300"} fontSize={"md"}>

@@ -47,7 +47,6 @@ export const registerAction = createAsyncThunk(
           type: "error",
         })
       );
-      thunkAPI.dispatch(setLoading(false));
     }
   }
 );
@@ -72,7 +71,6 @@ export const loginAction = createAsyncThunk(
           type: "error",
         })
       );
-      thunkAPI.dispatch(setLoading(false));
     }
   }
 );

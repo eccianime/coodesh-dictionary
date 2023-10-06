@@ -6,10 +6,17 @@ const { Navigator, Screen } = createBottomTabNavigator();
 
 export default function AccountTab() {
   return (
-    <Navigator>
+    <Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+      sceneContainerStyle={{
+        backgroundColor: "white",
+      }}
+    >
       <Screen name="Word List" component={WordList} />
-      <Screen name="Favorites" component={Favorites} />
       <Screen name="History" component={History} />
+      <Screen name="Favorites" component={Favorites} />
     </Navigator>
   );
 }

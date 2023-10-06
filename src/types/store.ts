@@ -9,3 +9,8 @@ export type AccountState = {
   currentUser?: any;
   favorites: any[];
 };
+
+export type WordsState = {
+  currentPage: number;
+  words: string[];
+};

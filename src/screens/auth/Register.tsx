@@ -18,14 +18,12 @@ import {
   Text,
 } from "../../components";
 import { useAppDispatch, useAppNavigation, useAppSelector } from "../../hooks";
-import { registerAction } from "../../redux";
+import { appSelector, registerAction } from "../../redux";
 
 export default function Register() {
   const { navigate } = useAppNavigation();
-  const dispatch = useAppDispatch();
-  const { isLoading, isModalVisible, modalText, modalType } = useAppSelector(
-    (state) => state.app
-  );
+  const { isLoading, isModalVisible, modalText, modalType } =
+    useAppSelector(appSelector);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -34,9 +32,8 @@ export default function Register() {
   });
   const [isPassVisible, setPassVisible] = useState(false);
 
-  const handleRegister = async () => {
-    dispatch(registerAction(formData));
-  };
+  const dispatch = useAppDispatch();
+  const handleRegister = () => dispatch(registerAction(formData));
 
   return (
     <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>

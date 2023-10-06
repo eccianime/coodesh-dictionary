@@ -57,11 +57,7 @@ export default function App() {
           <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
             <AppStack />
           </View>
-          <StatusBar
-            translucent
-            backgroundColor={"#FFFFFF00"}
-            barStyle={"light-content"}
-          />
+          <StatusBar translucent={false} barStyle={"light-content"} />
         </NavigationContainer>
       </NativeBaseProvider>
     </Provider>

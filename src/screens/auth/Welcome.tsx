@@ -1,9 +1,15 @@
 import { Center, VStack } from "native-base";
 import { Button, LogoHeader, Text } from "../../components";
 import { useAppNavigation } from "../../hooks";
+import { AsyncRemove } from "../../utils/storage";
+import { useEffect } from "react";
 
 export default function Welcome() {
   const { navigate } = useAppNavigation();
+
+  useEffect(() => {
+    AsyncRemove("wordList");
+  }, []);
   return (
     <VStack flex={1}>
       <LogoHeader />

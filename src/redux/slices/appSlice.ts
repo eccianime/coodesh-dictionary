@@ -19,6 +19,7 @@ export const appSlice = createSlice({
     },
     setModal: (state, action: PayloadAction<ModalProps>) => {
       const { isVisible, text, type } = action.payload;
+      state.isLoading = false;
       state.isModalVisible = isVisible;
       state.modalText = text;
       state.modalType = type;
@@ -29,7 +30,7 @@ export const appSlice = createSlice({
       .addCase("account/setUser", (state) => {
         state.isLoading = false;
       })
-      .addCase("app/setModal", (state) => {
+      .addCase("words/setWords", (state) => {
         state.isLoading = false;
       });
   },

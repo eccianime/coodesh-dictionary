@@ -4,4 +4,3 @@ import { AppNavigation } from "../types";
 export const useAppNavigation = () => useNavigation<AppNavigation>();
 
 export * from "./redux";
-export * from "./storage";
