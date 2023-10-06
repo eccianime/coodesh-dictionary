@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-type storedKeys = "history" | "wordList";
+type storedKeys = "pastWords" | "wordList";
 
 export const AsyncStore = async (key: storedKeys, value: any) => {
   const item = { value };

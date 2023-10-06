@@ -5,7 +5,7 @@ import { useAppSelector } from "../hooks";
 import { AppParamList } from "../types";
 import AccountTab from "./AccountTab";
 import AuthStack from "./AuthStack";
-import Details from "../screens/Details/WordDetails";
+import Details from "../screens/details/WordDetails";
 
 const { Navigator, Screen } = createStackNavigator<AppParamList>();
 
@@ -15,6 +15,9 @@ export default function AppStack() {
     <Navigator
       screenOptions={{
         headerShown: false,
+        cardStyle: {
+          backgroundColor: "white",
+        },
       }}
     >
       {!currentUser ? (

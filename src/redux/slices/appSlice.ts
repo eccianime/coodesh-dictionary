@@ -32,6 +32,15 @@ export const appSlice = createSlice({
       })
       .addCase("words/setWords", (state) => {
         state.isLoading = false;
+      })
+      .addCase("words/setWordDetails", (state) => {
+        state.isLoading = false;
+      })
+      .addCase("account/setHistory", (state) => {
+        state.isLoading = false;
+      })
+      .addCase("account/setFavorites", (state) => {
+        state.isLoading = false;
       });
   },
 });

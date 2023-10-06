@@ -11,6 +11,14 @@ export type ModalProps = {
 };
 
 export type WordFlatListProps = {
-  currentPage: number;
+  currentPage: number | null;
   words: string[];
+};
+
+export type DetailsHeaderProps = {
+  word: string;
+};
+
+export type NoContentProps = {
+  text: string;
 };

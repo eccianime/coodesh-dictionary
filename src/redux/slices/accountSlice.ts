@@ -6,6 +6,7 @@ import { AccountState, UserProps } from "../../types";
 const initialState: AccountState = {
   currentUser: undefined,
   favorites: [],
+  history: [],
 };
 
 export const accountSlice = createSlice({
@@ -15,13 +16,16 @@ export const accountSlice = createSlice({
     setUser: (state, action: PayloadAction<UserProps | undefined>) => {
       state.currentUser = action.payload;
     },
-    setFavorites: (state, action: PayloadAction<any[]>) => {
+    setFavorites: (state, action: PayloadAction<string[]>) => {
       state.favorites = action.payload;
+    },
+    setHistory: (state, action: PayloadAction<string[]>) => {
+      state.history = action.payload;
     },
   },
 });
 
-export const { setFavorites, setUser } = accountSlice.actions;
+export const { setFavorites, setHistory, setUser } = accountSlice.actions;
 
 export const accountSelector = (state: RootState) => state.account;
 

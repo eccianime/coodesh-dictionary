@@ -42,6 +42,10 @@ A API não possui endpoint com a lista de palavras. Essa lista pode ser carregad
 
 **Obrigatório 3** - Seguir o wireframe para a página de listagem dos dados. Pode-se alterar a posição dos itens, mantendo as funcionalidades solicitadas.
 
+## Link de apresentação do projeto
+
+https://google.com
+
 ## Processo
 
 Esta seção se refere ao processo mental que eu fiz para poder criar o aplicativo. Em geral poderia se dizer que é um padrão próprio que acabei utilizando para a maioria dos projetos.
@@ -63,69 +67,3 @@ Esta seção se refere ao processo mental que eu fiz para poder criar o aplicati
 - Também vai ser necessário react-navigation, axios, e vou usar stack e bottom tabs para dar um melhor estilo ao wireframe
 
 - Ao fim, para manter os dados em caché vou usar AsyncStorage e para manter o código limpo, uso esw (ESLint Watch) e TSC (Typescript Compiler) com algumas regras que eu aprendi que são necessárias ja que me ajudam a escreever menos erros no código.
-
-### Estrutura do projeto
-
-Muitos dos meus projetos seguem um padrão fixo, para este projeto vai ser o seguinte:
-
-```
-coodesh-dictionary/
-├── src/
-│   ├── index.d.ts
-│   │
-│   ├── components/
-│   │   ├── common/
-│   │   │   ├── Button.tsx
-│   │   │   ├── Text.tsx
-│   │   │   └── TextInput.tsx
-│   │   │
-│   │   ├── auth/
-│   │   └── account
-│   │
-│   ├── config/
-│   │   ├── firebase.ts
-│   │   └── theme.ts
-│   │
-│   ├── data/
-│   │   └── wordlist.json
-│   │
-│   ├── hooks/
-│   │   ├── index.ts
-│   │   ├── storage.ts
-│   │   └── redux.ts
-│   │
-│   ├── navigators/
-│   │   ├── AppStack.tsx
-│   │   ├── AuthStack.tsx
-│   │   └── AccountTab.tsx
-│   │
-│   ├── redux/
-│   │   ├── index.ts
-│   │   ├── actions/
-│   │   └── slices/
-│   │       ├── authSlice.ts
-│   │       └── accountSlice.tsx
-│   │
-│   ├── screens/
-│   │   ├── Auth/
-│   │   │   ├── LogIn.tsx
-│   │   │   └── Register.tsx
-│   │   ├── Account/
-│   │   │   ├── Favorites.tsx
-│   │   │   ├── History.tsx
-│   │   │   └── WordList.tsx
-│   │   └── Details/
-│   │       └── WordDetails.tsx
-│   │
-│   ├── services/
-│   │   └── index.ts
-│   │
-│   └── types/
-│       ├── index.ts
-│       ├── components.ts
-│       ├── store.ts
-│       └── navigators.ts
-│
-└── App.tsx
-
-```

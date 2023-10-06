@@ -1,6 +1,6 @@
-import { Center, Spinner, VStack, useTheme } from "native-base";
+import { VStack } from "native-base";
 import { useEffect } from "react";
-import { PageHeader, Text, WordFlatList } from "../../components";
+import { LoadingMini, PageHeader, Text, WordFlatList } from "../../components";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getWords } from "../../redux";
 
@@ -8,7 +8,6 @@ export default function WordList() {
   const { words, currentPage } = useAppSelector((state) => state.words);
   const { isLoading } = useAppSelector((state) => state.app);
   const dispatch = useAppDispatch();
-  const { colors } = useTheme();
 
   useEffect(() => {
     dispatch(getWords({ currentPage }));
@@ -17,7 +16,7 @@ export default function WordList() {
   return (
     <VStack flex={1}>
       <PageHeader />
-      <VStack p={3}>
+      <VStack py={3} px={5}>
         <Text fontFamily={"bold"} fontSize={"2xl"}>
           Word List
         </Text>
@@ -25,15 +24,10 @@ export default function WordList() {
           Touch in a word to see its meaning and pronunciation
         </Text>
       </VStack>
-      <WordFlatList currentPage={currentPage} words={words} />
-      {isLoading && (
-        <Center flexGrow={1}>
-          <Spinner color={colors.primary[200]} size={50} />
-          <Text color={"primary.200"} fontFamily={"bold"} fontSize={"lg"}>
-            Loading...
-          </Text>
-        </Center>
+      {words.length > 0 && (
+        <WordFlatList currentPage={currentPage} words={words} />
       )}
+      {isLoading && <LoadingMini />}
     </VStack>
   );
 }

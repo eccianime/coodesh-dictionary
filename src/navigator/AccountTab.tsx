@@ -1,10 +1,13 @@
 import { AntDesign } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { WordList, Favorites, History } from "../screens/account";
-import { AccountParamList } from "../types";
-import { Icon, Center, useTheme } from "native-base";
+import { Center, Icon, useTheme } from "native-base";
+import { useEffect } from "react";
 import { Text } from "../components";
+import { useAppDispatch } from "../hooks";
+import { getFavoritesAction, getHistoryAction } from "../redux/actions/account";
+import { Favorites, History, WordList } from "../screens/account";
+import { AccountParamList } from "../types";
 
 const { Navigator, Screen } = createBottomTabNavigator<AccountParamList>();
 
@@ -39,6 +42,13 @@ export default function AccountTab() {
       </Center>
     );
   };
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getHistoryAction());
+    dispatch(getFavoritesAction());
+  }, []);
   return (
     <Navigator
       screenOptions={({ route }) => ({
@@ -56,8 +66,20 @@ export default function AccountTab() {
       }}
     >
       <Screen name="Word List" component={WordList} />
-      <Screen name="History" component={History} />
-      <Screen name="Favorites" component={Favorites} />
+      <Screen
+        name="History"
+        component={History}
+        listeners={{
+          tabPress: () => dispatch(getHistoryAction()),
+        }}
+      />
+      <Screen
+        name="Favorites"
+        component={Favorites}
+        listeners={{
+          tabPress: () => dispatch(getFavoritesAction()),
+        }}
+      />
     </Navigator>
   );
 }

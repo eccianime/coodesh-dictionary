@@ -9,6 +9,7 @@ export default function Welcome() {
 
   useEffect(() => {
     AsyncRemove("wordList");
+    AsyncRemove("pastWords");
   }, []);
   return (
     <VStack flex={1}>
