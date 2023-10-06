@@ -7,19 +7,37 @@ import {
   Pressable,
   VStack,
 } from "native-base";
-import { Button, Input, LogoHeader, Text } from "../../components";
 import { useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { useAppNavigation } from "../../hooks";
+import {
+  Button,
+  Input,
+  Loading,
+  LogoHeader,
+  Modal,
+  Text,
+} from "../../components";
+import { useAppDispatch, useAppNavigation, useAppSelector } from "../../hooks";
+import { registerAction } from "../../redux";
 
 export default function Register() {
+  const { navigate } = useAppNavigation();
+  const dispatch = useAppDispatch();
+  const { isLoading, isModalVisible, modalText, modalType } = useAppSelector(
+    (state) => state.app
+  );
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     repeatPassword: "",
   });
   const [isPassVisible, setPassVisible] = useState(false);
-  const { navigate } = useAppNavigation();
+
+  const handleRegister = async () => {
+    dispatch(registerAction(formData));
+  };
+
   return (
     <KeyboardAwareScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <LogoHeader />
@@ -80,7 +98,7 @@ export default function Register() {
           />
         </HStack>
         <Center>
-          <Button text="Criar Conta" isOutline />
+          <Button text="Criar Conta" isOutline onPress={handleRegister} />
           <Pressable onPress={() => navigate("Auth", { screen: "Log In" })}>
             <Text textAlign={"center"} fontSize={"md"} mb={5}>
               {"Ja tem conta? "}
@@ -91,6 +109,8 @@ export default function Register() {
           </Pressable>
         </Center>
       </VStack>
+      {isLoading && <Loading />}
+      <Modal isVisible={isModalVisible} text={modalText} type={modalType} />
     </KeyboardAwareScrollView>
   );
 }

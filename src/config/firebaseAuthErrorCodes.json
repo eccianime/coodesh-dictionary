@@ -1,0 +1,222 @@
+[
+  {
+    "code": "auth/claims-too-large",
+    "description": "A carga de reivindicações fornecida para setCustomUserClaims() excede o tamanho máximo permitido de 1000 bytes."
+  },
+  {
+    "code": "auth/email-already-in-use",
+    "description": "O email fornecido já está em uso por um usuário existente. Cada usuário deve ter um email único."
+  },
+  {
+    "code": "auth/email-already-exists",
+    "description": "O email fornecido já está em uso por um usuário existente. Cada usuário deve ter um email único."
+  },
+  {
+    "code": "auth/id-token-expired",
+    "description": "O token de ID Firebase fornecido expirou."
+  },
+  {
+    "code": "auth/id-token-revoked",
+    "description": "O token de ID Firebase foi revogado."
+  },
+  {
+    "code": "auth/insufficient-permission",
+    "description": "As credenciais usadas para inicializar o SDK Admin não têm permissão suficiente para acessar o recurso de Autenticação solicitado. Consulte a documentação Configurar um projeto Firebase para obter informações sobre como gerar uma credencial com as permissões apropriadas e usá-la para autenticar os SDKs Admin."
+  },
+  {
+    "code": "auth/internal-error",
+    "description": "O servidor de Autenticação encontrou um erro inesperado ao tentar processar a solicitação. A mensagem de erro deve conter a resposta do servidor de Autenticação contendo informações adicionais. Se o erro persistir, relate o problema ao nosso canal de suporte para Relatório de Bugs."
+  },
+  {
+    "code": "auth/invalid-argument",
+    "description": "Foi fornecido um argumento inválido para um método de Autenticação. A mensagem de erro deve conter informações adicionais."
+  },
+  {
+    "code": "auth/invalid-claims",
+    "description": "Os atributos de reivindicação personalizada fornecidos para setCustomUserClaims() são inválidos."
+  },
+  {
+    "code": "auth/invalid-continue-uri",
+    "description": "A URL de continuação deve ser uma string de URL válida."
+  },
+  {
+    "code": "auth/invalid-creation-time",
+    "description": "A data de criação deve ser uma string de data UTC válida."
+  },
+  {
+    "code": "auth/invalid-credential",
+    "description": "A credencial usada para autenticar os SDKs Admin não pode ser usada para realizar a ação desejada. Certos métodos de Autenticação, como createCustomToken() e verifyIdToken(), exigem que o SDK seja inicializado com uma credencial de certificado, em oposição a um token de atualização ou uma credencial de Aplicativo Padrão. Consulte a Inicialização do SDK para obter informações sobre como autenticar os SDKs Admin com uma credencial de certificado."
+  },
+  {
+    "code": "auth/invalid-disabled-field",
+    "description": "O valor fornecido para a propriedade de usuário desativado é inválido. Deve ser um valor booleano."
+  },
+  {
+    "code": "auth/invalid-display-name",
+    "description": "O valor fornecido para a propriedade de usuário displayName é inválido. Deve ser uma string não vazia."
+  },
+  {
+    "code": "auth/invalid-dynamic-link-domain",
+    "description": "O domínio de link dinâmico fornecido não está configurado ou autorizado para o projeto atual."
+  },
+  {
+    "code": "auth/invalid-email",
+    "description": "O valor fornecido para a propriedade de usuário email é inválido. Deve ser um endereço de email em formato de string."
+  },
+  {
+    "code": "auth/invalid-email-verified",
+    "description": "O valor fornecido para a propriedade de usuário emailVerified é inválido. Deve ser um valor booleano."
+  },
+  {
+    "code": "auth/invalid-hash-algorithm",
+    "description": "O algoritmo de hash deve corresponder a uma das strings na lista de algoritmos suportados."
+  },
+  {
+    "code": "auth/invalid-hash-block-size",
+    "description": "O tamanho do bloco de hash deve ser um número válido."
+  },
+  {
+    "code": "auth/invalid-hash-derived-key-length",
+    "description": "O comprimento da chave derivada do hash deve ser um número válido."
+  },
+  {
+    "code": "auth/invalid-hash-key",
+    "description": "A chave de hash deve ser um buffer de bytes válido."
+  },
+  {
+    "code": "auth/invalid-hash-memory-cost",
+    "description": "O custo de memória do hash deve ser um número válido."
+  },
+  {
+    "code": "auth/invalid-hash-parallelization",
+    "description": "A paralelização do hash deve ser um número válido."
+  },
+  {
+    "code": "auth/invalid-hash-rounds",
+    "description": "As rodadas do hash devem ser um número válido."
+  },
+  {
+    "code": "auth/invalid-hash-salt-separator",
+    "description": "O campo de separador de sal de algoritmo de hash deve ser um buffer de bytes válido."
+  },
+  {
+    "code": "auth/invalid-id-token",
+    "description": "O token de ID fornecido não é um token de ID Firebase válido."
+  },
+  {
+    "code": "auth/invalid-last-sign-in-time",
+    "description": "A última hora de login deve ser uma string de data UTC válida."
+  },
+  {
+    "code": "auth/invalid-page-token",
+    "description": "O token da próxima página fornecido em listUsers() é inválido. Deve ser uma string não vazia válida."
+  },
+  {
+    "code": "auth/invalid-password",
+    "description": "O valor fornecido para a propriedade de usuário password é inválido. Deve ser uma string com pelo menos seis caracteres."
+  },
+  {
+    "code": "auth/invalid-password-hash",
+    "description": "O hash da senha deve ser um buffer de bytes válido."
+  },
+  {
+    "code": "auth/invalid-password-salt",
+    "description": "O sal da senha deve ser um buffer de bytes válido."
+  },
+  {
+    "code": "auth/invalid-phone-number",
+    "description": "O valor fornecido para o phoneNumber é inválido. Deve ser uma string não vazia compatível com o padrão E.164."
+  },
+  {
+    "code": "auth/invalid-photo-url",
+    "description": "O valor fornecido para a propriedade de usuário photoURL é inválido. Deve ser uma string de URL."
+  },
+  {
+    "code": "auth/invalid-provider-data",
+    "description": "providerData deve ser um array válido de objetos UserInfo."
+  },
+  {
+    "code": "auth/invalid-provider-id",
+    "description": "providerId deve ser uma string válida de identificador de provedor suportado."
+  },
+  {
+    "code": "auth/invalid-oauth-responsetype",
+    "description": "Apenas um responseType OAuth deve ser definido como verdadeiro."
+  },
+  {
+    "code": "auth/invalid-session-cookie-duration",
+    "description": "A duração do cookie de sessão deve ser um número válido em milissegundos entre 5 minutos e 2 semanas."
+  },
+  {
+    "code": "auth/invalid-uid",
+    "description": "O uid fornecido deve ser uma string não vazia com no máximo 128 caracteres."
+  },
+  {
+    "code": "auth/invalid-user-import",
+    "description": "O registro de usuário a ser importado é inválido."
+  },
+  {
+    "code": "auth/maximum-user-count-exceeded",
+    "description": "O número máximo permitido de usuários a serem importados foi excedido."
+  },
+  {
+    "code": "auth/missing-android-pkg-name",
+    "description": "Um nome de pacote Android deve ser fornecido se o aplicativo Android precisar ser instalado."
+  },
+  {
+    "code": "auth/missing-continue-uri",
+    "description": "Uma URL de continuação válida deve ser fornecida na solicitação."
+  },
+  {
+    "code": "auth/missing-hash-algorithm",
+    "description": "A importação de usuários com hashes de senha exige que o algoritmo de hash e seus parâmetros sejam fornecidos."
+  },
+  {
+    "code": "auth/missing-ios-bundle-id",
+    "description": "A solicitação está faltando um ID de Pacote."
+  },
+  {
+    "code": "auth/missing-uid",
+    "description": "Um identificador uid é necessário para a operação atual."
+  },
+  {
+    "code": "auth/missing-oauth-client-secret",
+    "description": "O segredo do cliente da configuração OAuth é necessário para habilitar o fluxo de código OIDC."
+  },
+  {
+    "code": "auth/operation-not-allowed",
+    "description": "O provedor de login fornecido está desativado para o seu projeto Firebase. Ative-o na seção Método de Login do console Firebase."
+  },
+  {
+    "code": "auth/phone-number-already-exists",
+    "description": "O número de telefone fornecido já está em uso por um usuário existente. Cada usuário deve ter um número de telefone único."
+  },
+  {
+    "code": "auth/project-not-found",
+    "description": "Nenhum projeto Firebase foi encontrado para a credencial usada para inicializar os SDKs Admin. Consulte Configurar um projeto Firebase para obter informações sobre como gerar uma credencial para o seu projeto e usá-la para autenticar os SDKs Admin."
+  },
+  {
+    "code": "auth/reserved-claims",
+    "description": "Uma ou mais reivindicações personalizadas de usuário fornecidas para setCustomUserClaims() são reservadas. Por exemplo, reivindicações específicas do OIDC, como (sub, iat, iss, exp, aud, auth_time, etc), não devem ser usadas como chaves para reivindicações personalizadas."
+  },
+  {
+    "code": "auth/session-cookie-expired",
+    "description": "O cookie de sessão Firebase fornecido expirou."
+  },
+  {
+    "code": "auth/session-cookie-revoked",
+    "description": "O cookie de sessão Firebase foi revogado."
+  },
+  {
+    "code": "auth/uid-already-exists",
+    "description": "O uid fornecido já está em uso por um usuário existente. Cada usuário deve ter um uid único."
+  },
+  {
+    "code": "auth/unauthorized-continue-uri",
+    "description": "O domínio da URL de continuação não está na lista de permissões. Adicione o domínio à lista de permissões no Console Firebase."
+  },
+  {
+    "code": "auth/user-not-found",
+    "description": "Não há registro de usuário existente correspondente ao identificador fornecido."
+  }
+]

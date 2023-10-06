@@ -4,7 +4,7 @@ import { type RootState } from "..";
 import { AccountState } from "../../types";
 
 const initialState: AccountState = {
-  history: [],
+  currentUser: undefined,
   favorites: [],
 };
 
@@ -12,8 +12,8 @@ export const accountSlice = createSlice({
   name: "account",
   initialState,
   reducers: {
-    setHistory: (state, action: PayloadAction<any[]>) => {
-      state.history = action.payload;
+    setUser: (state, action: PayloadAction<any>) => {
+      state.currentUser = action.payload;
     },
     setFavorites: (state, action: PayloadAction<any[]>) => {
       state.favorites = action.payload;
@@ -21,7 +21,7 @@ export const accountSlice = createSlice({
   },
 });
 
-export const { setFavorites, setHistory } = accountSlice.actions;
+export const { setFavorites, setUser } = accountSlice.actions;
 
 export const accountSelector = (state: RootState) => state.account;
 

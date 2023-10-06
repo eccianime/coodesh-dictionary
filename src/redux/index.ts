@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./slices/authSlice";
+import appReducer from "./slices/appSlice";
 import accountReducer from "./slices/accountSlice";
 
 export const store = configureStore({
   reducer: {
-    auth: authReducer,
+    app: appReducer,
     account: accountReducer,
   },
 });
@@ -12,5 +12,7 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-export * from "./slices/authSlice";
+export * from "./slices/appSlice";
 export * from "./slices/accountSlice";
+
+export * from "./actions/auth";

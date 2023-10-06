@@ -10,7 +10,7 @@ import Details from "../screens/Details/WordDetails";
 const { Navigator, Screen } = createStackNavigator<AppParamList>();
 
 export default function AppStack() {
-  const { currentUser } = useAppSelector((state) => state.auth);
+  const { currentUser } = useAppSelector((state) => state.account);
   return (
     <Navigator
       screenOptions={{

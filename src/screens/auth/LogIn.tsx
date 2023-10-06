@@ -1,14 +1,30 @@
 import { Center, Pressable, VStack } from "native-base";
 import { useState } from "react";
-import { Button, Input, LogoHeader, Text } from "../../components";
-import { useAppNavigation } from "../../hooks";
+import {
+  Button,
+  Input,
+  Loading,
+  LogoHeader,
+  Modal,
+  Text,
+} from "../../components";
+import { useAppDispatch, useAppNavigation, useAppSelector } from "../../hooks";
+import { loginAction } from "../../redux";
 
 export default function LogIn() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const dispatch = useAppDispatch();
   const { navigate } = useAppNavigation();
+  const { isLoading, isModalVisible, modalText, modalType } = useAppSelector(
+    (state) => state.app
+  );
+
+  const handleLogin = () => {
+    dispatch(loginAction(formData));
+  };
   return (
     <VStack flex={1}>
       <LogoHeader />
@@ -34,7 +50,7 @@ export default function LogIn() {
           mb={3}
         />
         <Center>
-          <Button text="Entrar" isOutline />
+          <Button text="Entrar" isOutline onPress={handleLogin} />
           <Pressable onPress={() => navigate("Auth", { screen: "Register" })}>
             <Text textAlign={"center"} fontSize={"md"} mb={5}>
               {"Não tem conta? "}
@@ -45,6 +61,8 @@ export default function LogIn() {
           </Pressable>
         </Center>
       </VStack>
+      {isLoading && <Loading />}
+      <Modal isVisible={isModalVisible} text={modalText} type={modalType} />
     </VStack>
   );
 }

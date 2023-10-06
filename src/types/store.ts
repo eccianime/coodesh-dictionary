@@ -1,8 +1,11 @@
-export type AuthState = {
-  currentUser: boolean;
+export type AppState = {
+  isLoading: boolean;
+  isModalVisible: boolean;
+  modalText: string;
+  modalType: "success" | "error" | "";
 };
 
 export type AccountState = {
+  currentUser?: any;
   favorites: any[];
-  history: any[];
 };

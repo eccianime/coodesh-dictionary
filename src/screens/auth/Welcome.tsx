@@ -19,7 +19,7 @@ export default function Welcome() {
           onPress={() => navigate("Auth", { screen: "Register" })}
         />
         <Button
-          text="Entrar"
+          text="Ja tenho conta"
           isOutline
           onPress={() => navigate("Auth", { screen: "Log In" })}
         />
