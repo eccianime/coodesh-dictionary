@@ -1,4 +1,5 @@
 import { ITextProps } from "native-base";
+import { MeaningsProps, WordAndPhoneticsProps } from "./store";
 
 export type TextProps = ITextProps & {
   fontFamily?: "bold" | "light" | "medium";
@@ -21,4 +22,19 @@ export type DetailsHeaderProps = {
 
 export type NoContentProps = {
   text: string;
+};
+
+export type WordAndPhoneticCardProps = WordAndPhoneticsProps;
+
+export type MeaningCardProps = {
+  meanings: MeaningsProps[];
+};
+
+export type ExamplesCardProps = {
+  examples: (string | undefined)[];
+};
+
+export type AudioPlayerProps = {
+  audio: string;
+  type: "url" | "local";
 };

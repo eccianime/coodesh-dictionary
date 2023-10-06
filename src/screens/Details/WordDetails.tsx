@@ -1,7 +1,13 @@
 import { useRoute } from "@react-navigation/native";
 import { ScrollView, VStack } from "native-base";
 import { useEffect } from "react";
-import { DetailsHeader, Loading, NoContent, Text } from "../../components";
+import {
+  DetailsHeader,
+  Loading,
+  MeaningCard,
+  NoContent,
+  WordAndPhoneticCard,
+} from "../../components";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getWordDetails, setWordDetails } from "../../redux";
 import { AppParamList } from "../../types";
@@ -26,11 +32,18 @@ export default function WordDetails() {
       contentContainerStyle={{ flexGrow: 1 }}
     >
       <DetailsHeader word={word} />
-      {wordDetails && wordDetails?.length > 0 && (
+      {wordDetails && (
         <VStack p={3}>
-          <VStack>
-            <Text fontSize={"4xl"}>{word}</Text>
-          </VStack>
+          {wordDetails.map((wd, i) => (
+            <VStack key={`${word}-${i}`}>
+              <WordAndPhoneticCard
+                word={wd.word}
+                phonetics={wd.phonetics}
+                phonetic={wd.phonetic}
+              />
+              <MeaningCard meanings={wd.meanings} />
+            </VStack>
+          ))}
         </VStack>
       )}
       {!isLoading && !wordDetails && (

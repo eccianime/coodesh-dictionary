@@ -21,7 +21,7 @@ export default function WordList() {
           Word List
         </Text>
         <Text fontSize={"lg"} textAlign={"justify"}>
-          Touch in a word to see its meaning and pronunciation
+          Press on a word to see its meaning and pronunciation
         </Text>
       </VStack>
       {words.length > 0 && (

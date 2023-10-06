@@ -1,4 +1,5 @@
-import { Center, FlatList, Pressable, VStack } from "native-base";
+import { Center, Pressable, VStack } from "native-base";
+import { FlashList } from "@shopify/flash-list";
 import { memo } from "react";
 import { useAppDispatch, useAppNavigation } from "../../hooks";
 import { setCurrentPage } from "../../redux";
@@ -14,13 +15,13 @@ function WordFlatList({ words, currentPage }: WordFlatListProps) {
   };
 
   return (
-    <FlatList
-      keyExtractor={(item) => item}
+    <FlashList
+      showsVerticalScrollIndicator={false}
       data={[...words, ...Array(words.length % 3).fill("")]}
       contentContainerStyle={{
-        flexGrow: 1,
         paddingHorizontal: 20,
       }}
+      estimatedItemSize={50}
       numColumns={3}
       onEndReachedThreshold={0.7}
       onEndReached={() => {
@@ -35,10 +36,11 @@ function WordFlatList({ words, currentPage }: WordFlatListProps) {
               _pressed={{ opacity: 0.3 }}
               bg={"primary.300"}
               borderRadius={"md"}
+              px={3}
               onPress={() => onWordPressCallback(word)}
             >
               <Center h={10}>
-                <Text fontSize={"lg"} color={"white"} numberOfLines={1}>
+                <Text color={"white"} numberOfLines={1}>
                   {word}
                 </Text>
               </Center>

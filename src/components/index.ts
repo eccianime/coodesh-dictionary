@@ -12,3 +12,5 @@ export { default as LogoHeader } from "./auth/LogoHeader";
 export { default as Modal } from "./auth/Modal";
 
 export { default as DetailsHeader } from "./details/DetailsHeader";
+export { default as WordAndPhoneticCard } from "./details/WordAndPhoneticCard";
+export { default as MeaningCard } from "./details/MeaningCard";

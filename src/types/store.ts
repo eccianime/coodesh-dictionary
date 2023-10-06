@@ -16,29 +16,30 @@ export type AccountState = {
   history: string[];
 };
 
-// REMOVER
-
-type DefinitionProps = {
+export type DefinitionProps = {
   definition: string;
   synonyms: string[];
   antonyms: string[];
   example?: string;
 };
 
-type MeaningsProps = {
+export type MeaningsProps = {
   partOfSpeech: string;
   definitions: DefinitionProps[];
   synonyms?: string[];
   antonyms?: string;
 };
 
-export type WordDetailsProps = {
+export type WordAndPhoneticsProps = {
   word: string;
   phonetic?: string;
   phonetics: {
     text: string;
     audio?: string;
-  };
+  }[];
+};
+
+export type WordDetailsProps = WordAndPhoneticsProps & {
   meanings: MeaningsProps[];
 };
 

@@ -2,7 +2,6 @@ import { AntDesign } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Center, Icon, useTheme } from "native-base";
-import { useEffect } from "react";
 import { Text } from "../components";
 import { useAppDispatch } from "../hooks";
 import { getFavoritesAction, getHistoryAction } from "../redux/actions/account";
@@ -45,10 +44,6 @@ export default function AccountTab() {
 
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(getHistoryAction());
-    dispatch(getFavoritesAction());
-  }, []);
   return (
     <Navigator
       screenOptions={({ route }) => ({

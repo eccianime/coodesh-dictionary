@@ -27,7 +27,7 @@ export default function Favorites() {
         </Text>
         <Text fontSize={"lg"} textAlign={"justify"}>
           {
-            "In here, you'll see all your favorite words, single press in a word to see its meaning and pronunciation or press it for long time to remove it as favorite."
+            "In here, you'll see all your favorite words, press in a word to see its meaning and pronunciation."
           }
         </Text>
       </VStack>
