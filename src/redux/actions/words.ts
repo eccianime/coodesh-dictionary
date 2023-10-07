@@ -1,8 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { arrayUnion, doc, setDoc } from "firebase/firestore";
+import { getDownloadURL, ref } from "firebase/storage";
 import { RootState } from "..";
-import { DICTIONARY_URL, WORDS_URL, axiosRequest } from "../../config/axios";
-import { db } from "../../config/firebase";
+import { DICTIONARY_URL, axiosRequest } from "../../config/axios";
+import { db, storage } from "../../config/firebase";
 import { WordDetailsProps } from "../../types";
 import { AsyncGet, AsyncStore } from "../../utils/storage";
 import { setLoading } from "../slices/appSlice";
@@ -15,17 +16,17 @@ export const getWords = createAsyncThunk(
       thunkAPI.dispatch(setLoading(true));
       const { currentPage } = payload;
 
-      let wordList: string[] = [];
-      wordList = (await AsyncGet("wordList")) as string[];
+      const dictRef = ref(storage, "words_dictionary.json");
+      const jsonURL = await getDownloadURL(dictRef);
 
-      if (!wordList) {
-        const resp = await axiosRequest(WORDS_URL);
-        const newCacheWordList = Object.keys(resp);
-        await AsyncStore("wordList", newCacheWordList);
-        wordList = newCacheWordList;
-      }
+      let wordList = await axiosRequest(jsonURL);
+      wordList = Object.keys(wordList);
+
       const currentWordList = (thunkAPI.getState() as RootState).words.words;
-      const nextList = wordList.slice(currentPage * 30, (currentPage + 1) * 30);
+      const nextList = wordList.slice(
+        currentPage * 100,
+        (currentPage + 1) * 100
+      );
       const updatedWordList = [...new Set(currentWordList.concat(nextList))];
       thunkAPI.dispatch(setWords(updatedWordList));
     } catch (error) {

@@ -9,7 +9,7 @@ export default function ExamplesCard({ examples }: ExamplesCardProps) {
         Examples:
       </Text>
       {examples.map((ex, i) => (
-        <Text key={`ex-${i}`} fontStyle={"italic"}>{`Ex.${i}: ${ex}`}</Text>
+        <Text key={`ex-${i}`} fontStyle={"italic"}>{`Ex.${i + 1}: ${ex}`}</Text>
       ))}
     </VStack>
   );

@@ -1,8 +1,14 @@
-import { ITextProps } from "native-base";
+import { IPressableProps, ITextProps } from "native-base";
 import { MeaningsProps, WordAndPhoneticsProps } from "./store";
 
 export type TextProps = ITextProps & {
   fontFamily?: "bold" | "light" | "medium";
+};
+
+export type ButtonProps = IPressableProps & {
+  text: string;
+  isOutline?: boolean;
+  onPress?: VoidFunction;
 };
 
 export type ModalProps = {

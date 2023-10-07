@@ -9,7 +9,6 @@ export default function AudioPlayer({ audio, type }: AudioPlayerProps) {
     if (type === "url") {
       const { sound } = await Audio.Sound.createAsync({ uri: audio });
       await sound.playAsync();
-      // sound.unloadAsync();
     } else {
       Speech.speak(audio, {
         language: "en",

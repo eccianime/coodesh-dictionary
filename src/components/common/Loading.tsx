@@ -5,6 +5,7 @@ export default function Loading() {
   const { colors } = useTheme();
   return (
     <Center
+      testID="center"
       position={"absolute"}
       top={0}
       right={0}
@@ -12,8 +13,13 @@ export default function Loading() {
       bottom={0}
       bg={"rgba(255,255,255,.9)"}
     >
-      <Spinner color={colors.primary[200]} size={100} />
-      <Text color={"primary.200"} fontFamily={"bold"} fontSize={"lg"}>
+      <Spinner testID="spinner" color={colors.primary[200]} size={100} />
+      <Text
+        testID="loading-text"
+        color={"primary.200"}
+        fontFamily={"bold"}
+        fontSize={"lg"}
+      >
         Loading...
       </Text>
     </Center>

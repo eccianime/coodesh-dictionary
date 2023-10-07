@@ -5,6 +5,7 @@ import { TextProps } from "../../types";
 export default function Text(props: TextProps) {
   return (
     <NBText
+      testID="text"
       fontSize={"sm"}
       allowFontScaling={false}
       color={"black"}

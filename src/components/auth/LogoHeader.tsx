@@ -6,6 +6,7 @@ import { SCREEN_WIDTH } from "../../config/theme";
 export default function LogoHeader() {
   return (
     <Center
+      testID="logo-header"
       pt={10}
       pb={20}
       bg={{
@@ -16,9 +17,18 @@ export default function LogoHeader() {
         },
       }}
     >
-      <LogoSVG color="white" width={300} height={300 * 0.86} />
+      <LogoSVG
+        testID="logo-svg"
+        color="white"
+        width={300}
+        height={300 * 0.86}
+      />
       <VStack position={"absolute"} left={0} bottom={-1}>
-        <WaveSVG width={SCREEN_WIDTH} height={SCREEN_WIDTH * 0.17} />
+        <WaveSVG
+          testID="wave-svg"
+          width={SCREEN_WIDTH}
+          height={SCREEN_WIDTH * 0.17}
+        />
       </VStack>
     </Center>
   );

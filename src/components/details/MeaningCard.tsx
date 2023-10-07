@@ -16,7 +16,7 @@ export default function MeaningCard({ meanings }: MeaningCardProps) {
       </Text>
       {meanings.map((meaning, i) => (
         <VStack key={`meaning-${i}`}>
-          <Text fontStyle={"italic"} fontFamily={"bold"} fontSize={"md"}>
+          <Text mt={2} fontStyle={"italic"} fontFamily={"bold"} fontSize={"md"}>
             {meaning.partOfSpeech}.
           </Text>
           {meaning.definitions.map((def, i) => (

@@ -1,15 +1,21 @@
 import { Center, Pressable, VStack } from "native-base";
+import { ButtonProps } from "../../types";
 import Text from "./Text";
 
-type ButtonProps = {
-  text: string;
-  isOutline?: boolean;
-  onPress?: VoidFunction;
-};
-
-export default function Button({ text, isOutline, onPress }: ButtonProps) {
+export default function Button({
+  text,
+  isOutline,
+  onPress,
+  ...props
+}: ButtonProps) {
   return (
-    <Pressable w={"4/5"} _pressed={{ opacity: 0.2 }} mb={3} onPress={onPress}>
+    <Pressable
+      w={"4/5"}
+      _pressed={{ opacity: 0.2 }}
+      mb={3}
+      onPress={onPress}
+      {...props}
+    >
       <Center
         borderRadius={"full"}
         py={0.5}

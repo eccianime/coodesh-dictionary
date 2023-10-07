@@ -20,7 +20,10 @@ export default function Modal({ isVisible, text, type }: ModalProps) {
   return (
     <NBModal isOpen={isVisible} animationPreset="fade" px={5}>
       <VStack bg={"white"} borderRadius={"3xl"} p={5} w={"full"}>
-        <Center mb={3}>
+        <Center
+          mb={3}
+          testID={type === "error" ? "error-icon" : "success-icon"}
+        >
           <Icon
             color={type === "success" ? "green.500" : "red.500"}
             size={100}
@@ -48,7 +51,7 @@ export default function Modal({ isVisible, text, type }: ModalProps) {
           </Text>
         </Center>
         <VStack alignItems={"center"}>
-          <Button text="Fechar" onPress={closeModal} />
+          <Button testID="close-button" text="Close" onPress={closeModal} />
         </VStack>
       </VStack>
     </NBModal>

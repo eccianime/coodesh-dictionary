@@ -26,7 +26,7 @@ export default function History() {
         </Text>
       </VStack>
       {!isLoading && history.length > 0 && (
-        <WordFlatList currentPage={null} words={history} />
+        <WordFlatList currentPage={null} words={history.slice().reverse()} />
       )}
       {!isLoading && !history.length && (
         <NoContent
