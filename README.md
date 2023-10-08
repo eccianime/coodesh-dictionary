@@ -11,20 +11,17 @@ Nesse desafio você deverá desenvolver um aplicativo para listar palavras em in
 
 ### Front-End:
 
-- Framework: React Native
-- Estilização: Native Base
-- Gestão de Dados: Redux & Redux Context
-- Requisões: Axios
-- Caché: React Native Async Storage
+- React Native
+- Native Base
+- Redux
+- Redux-Toolkit
+- Axios
+- React Native Async Storage
+- React Navigation (Stack & Bottom Tabs)
 
 ### Back-End:
 
 - Firebase Javacript SDK
-
-### Testes Unitários
-
-- Jest
-- React Native Testing Library
 
 ## Requisitos do Aplicativo
 
@@ -44,26 +41,42 @@ A API não possui endpoint com a lista de palavras. Essa lista pode ser carregad
 
 ## Link de apresentação do projeto
 
-https://google.com
+https://www.loom.com/share/44f6906c4cce4c0e81fde9bf05b17e8c
 
-## Processo
+## Instalação
 
-Esta seção se refere ao processo mental que eu fiz para poder criar o aplicativo. Em geral poderia se dizer que é um padrão próprio que acabei utilizando para a maioria dos projetos.
+- Clonar o projeto
 
-### Pesquisa Prévia:
+```
+git clone https://github.com/eccianime/coodesh-dictionary
+```
 
-- **Designs para a parte de login/registro:** em pinterest, isto me leva a https://www.behance.net/gallery/164556805/UI-Design-Money-App só preciso o design de login e dai vou ir adaptando segundo as minhas próprias necessidades.
+- Trocar para a pasta coodesh-dictionary
 
-- **Designs para a parte interna do app:** sobre como se veria uma app de dicionário. Não consigo algo que atenda aos meus requisitos e gostos pessoais, existe algo mas não é 100% do meu gosto, posso me inspirar de aqui https://dribbble.com/shots/5313362-Unilever-Ecommerce-Mobile-App-Concept-AXD/attachments/1152533 mas decido ir por conta propria.
+```
+cd coodesh-dictionary
+```
 
-- **Fontes:** Preciso de uma fonte e cores que sejam agradáveis visualmente. Sei que usar variações de azul com branco e tons suaves com fontes Sans Serif são ideais para este fim, escolho Urbanist. É simples e serve ao meu propósito.
+- Instalar as dependencias com yarn ou npm
 
-- **Logo:** Para esta parte faço uso de um serviço gratuito de https://smashinglogo.com/ que da ideias sobre logos usando icones e tipografia gratuita. Isto gera um arquivo SVG que pode ser usado como logotipo do app.
+```
+yarn
+```
 
-### Início do projeto e adição de pacotes
+ou
 
-- Início criando o projeto com o template do expo com typescript, adiciono as fontes, redux, e native-base como gestor de estilos, para ele adiciono um arquivo de temas que vai servir para colocar as cores primárias, secundárias, tons de cinza, etc.
+```
+npm i
+```
 
-- Também vai ser necessário react-navigation, axios, e vou usar stack e bottom tabs para dar um melhor estilo ao wireframe
+- Rodar o projeto
 
-- Ao fim, para manter os dados em caché vou usar AsyncStorage e para manter o código limpo, uso esw (ESLint Watch) e TSC (Typescript Compiler) com algumas regras que eu aprendi que são necessárias ja que me ajudam a escreever menos erros no código.
+```
+yarn start
+```
+
+ou
+
+```
+npx expo start
+```

@@ -1,27 +1,19 @@
 import { Center, Pressable, VStack } from "native-base";
 import { useState } from "react";
-import {
-  Button,
-  Input,
-  Loading,
-  LogoHeader,
-  Modal,
-  Text,
-} from "../../components";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { Button, Input, Loading, LogoHeader, Text } from "../../components";
 import { useAppDispatch, useAppNavigation, useAppSelector } from "../../hooks";
 import { appSelector, loginAction } from "../../redux";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function LogIn() {
   const [formData, setFormData] = useState({
-    email: "asd1@asd.com",
-    password: "12345678",
+    email: "",
+    password: "",
   });
   const dispatch = useAppDispatch();
   const { navigate } = useAppNavigation();
 
-  const { isLoading, isModalVisible, modalText, modalType } =
-    useAppSelector(appSelector);
+  const { isLoading } = useAppSelector(appSelector);
 
   const handleLogin = () => dispatch(loginAction(formData));
   const handleGoRegister = () => navigate("Auth", { screen: "Register" });
@@ -63,7 +55,6 @@ export default function LogIn() {
         </Center>
       </VStack>
       {isLoading && <Loading />}
-      <Modal isVisible={isModalVisible} text={modalText} type={modalType} />
     </KeyboardAwareScrollView>
   );
 }
